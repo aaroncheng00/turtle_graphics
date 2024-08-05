@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Canvas from './canvas/Canvas.js';
+import RadioButtons from './radio/RadioButtons.js';
+import Setter from './setter/Setter.js';
+import { useState } from 'react'
 
 function App() {
+  const [preset, setPreset] = useState('fractalTree');
+  const [shapeLength, setShapeLength] = useState(5);
+  const [shapeSize, setShapeSize] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <RadioButtons setValue={setPreset}/>
+      <div className='Setter1'>
+        <Setter labelName={'Length: '} defaultValue={shapeLength} setValue={setShapeLength}/>
+      </div>
+      <div className='Setter2'>
+        <Setter labelName={'Size(n): '} defaultValue={shapeSize} setValue={setShapeSize}/>
+      </div>
+      <Canvas presetChoice={preset} shapeLength={shapeLength} shapeSize={shapeSize}/>
+  </div>
   );
 }
 
