@@ -1,14 +1,30 @@
-import { rotateRadian, compose } from "./utils.js";
+import { rotateRadian, compose } from "./Utils.js";
 
-const fractalPlant = {
-    v: ["X", "F"],
-    constants: ["+", "-", "[", "]"],
-    axiom: "X",
-    rules: new Map([
+class Rules {
+    constructor(
+        variables,
+        constants,
+        axiom,
+        rules,
+        mapping
+    ) {
+        this.variables = variables;
+        this.constants = constants;
+        this.axiom = axiom;
+        this.rules = rules;
+        this.mapping = mapping;
+    }
+}
+
+const fractalPlant = new Rules(
+    ["X", "F"],
+    ["+", "-", "[", "]"],
+    "X",
+    new Map([
         ["X", "F+[[X]-X]-F[-FX]+X"],
         ["F", "FF"],
     ]),
-    mapping: new Map([
+    new Map([
         ["X", nothing],
         ["F", line],
         ["+", turn(25)],
@@ -16,55 +32,55 @@ const fractalPlant = {
         ["[", push],
         ["]", restore]
     ]),
-}
+)
 
-const sierpinskiTriangle = {
-    v: ["F", "G"],
-    constants: ["+", "-"],
-    axiom: "F-G-G",
-    rules: new Map([
+const sierpinskiTriangle = new Rules(
+    ["F", "G"],
+    ["+", "-"],
+    "F-G-G",
+    new Map([
         ["F", "F-G+F+G-F"],
         ["G", "GG"],
     ]),
-    mapping: new Map([
+    new Map([
         ["F", line],
         ["G", line],
         ["+", turn(120)],
         ["-", turn(-120)],
     ]),
-}
+)
 
-const dragonCurve = {
-    v: ["F", "G"],
-    constants: ["+", "-"],
-    axiom: "F",
-    rules: new Map([
+const dragonCurve = new Rules(
+    ["F", "G"],
+    ["+", "-"],
+    "F",
+    new Map([
         ["F", "F+G"],
         ["G", "F-G"],
     ]),
-    mapping: new Map([
+    new Map([
         ["F", leaf],
         ["G", leaf],
         ["+", turn(90)],
         ["-", turn(-90)],
     ]),
-}
+)
 
-const fractalTree = {
-    v: ["0", "1"],
-    constants: ["[", "]"],
-    axiom: "0",
-    rules: new Map([
+const fractalTree = new Rules(
+    ["0", "1"],
+    ["[", "]"],
+    "0",
+    new Map([
         ["1", "11"],
         ["0", "1[0]0"],
     ]),
-    mapping: new Map([
+    new Map([
         ["0", line],
         ["1", leaf],
         ["[", compose(turn(45), push)],
         ["]", compose(turn(-45), restore)]
     ]),
-}
+)
 
 const functionMap = new Map([
     ["nothing", nothing],
@@ -104,4 +120,4 @@ function leaf(wrap) {
     return line(wrap);
 }
 
-export { fractalTree, dragonCurve, sierpinskiTriangle, fractalPlant, functionMap }
+export { fractalTree, dragonCurve, sierpinskiTriangle, fractalPlant, functionMap, Rules }

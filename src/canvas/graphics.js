@@ -1,5 +1,5 @@
-import { Turtle } from "./turtle.js"
-import { toRadian } from "./utils.js";
+import { Turtle } from "./Turtle.js"
+import { toRadian } from "./Utils.js";
 
 // apply rules to generate next state
 function generateNextShape(rule, shape) {

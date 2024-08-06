@@ -1,0 +1,28 @@
+.Symbols1{
+    position: absolute;
+    z-index: 2;
+    color: palevioletred;
+    left: 10px;
+    top: 160px;
+}
+.Symbols2{
+    position: absolute;
+    z-index: 2;
+    color: palevioletred;
+    left: 10px;
+    top: 200px;
+}
+.Symbols3{
+    position: absolute;
+    z-index: 2;
+    color: palevioletred;
+    left: 10px;
+    top: 240px;
+}
+.Symbols4{
+    position: absolute;
+    z-index: 2;
+    color: palevioletred;
+    left: 10px;
+    top: 280px;
+}

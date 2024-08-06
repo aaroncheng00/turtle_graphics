@@ -1,9 +1,9 @@
 import './Canvas.css';
 import { useRef, useEffect } from 'react';
-import { drawScene } from "./drawScene.js";
-import { vsSource, fsSource } from "./shaders.js";
-import { generateNextShape, generatePositions } from "./graphics.js";
-import { fractalTree, dragonCurve, sierpinskiTriangle, fractalPlant } from "./rules.js";
+import { drawScene } from "./DrawScene.js";
+import { vsSource, fsSource } from "./Shaders.js";
+import { generateNextShape, generatePositions } from "./Graphics.js";
+import { fractalTree, dragonCurve, sierpinskiTriangle, fractalPlant } from "./Rules.js";
 
 export default function Canvas({ presetChoice, shapeLength, shapeSize }) {
     const canvasRef = useRef(null);
