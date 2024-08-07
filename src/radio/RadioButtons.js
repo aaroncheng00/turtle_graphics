@@ -16,6 +16,8 @@ export default function RadioButtons({ defaultValue, setValue }) {
             <br></br>
             <input type='radio' value='dragonCurve' name='preset' readOnly checked={defaultValue == 'dragonCurve'}/> Dragon Curve
             <br></br>
+            <input type='radio' value='Custom' name='preset' readOnly checked={defaultValue == 'Custom'}/> Custom
+            <br></br>
         </div>
     );
   }

@@ -5,7 +5,7 @@ import { vsSource, fsSource } from "./Shaders.js";
 import { generateNextShape, generatePositions } from "./Graphics.js";
 import { fractalTree, dragonCurve, sierpinskiTriangle, fractalPlant } from "./Rules.js";
 
-export default function Canvas({ presetChoice, shapeLength, shapeSize }) {
+export default function Canvas({ presetChoice, shapeLength, shapeSize, newRules }) {
     const canvasRef = useRef(null);
     useEffect(() => {
         //draw canvas
@@ -40,15 +40,16 @@ export default function Canvas({ presetChoice, shapeLength, shapeSize }) {
         gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
             
         // Initialize drawing to default shape
-        updateShape(gl, programInfo, positionBuffer, presetChoice, shapeLength, shapeSize);
+        updateShape(gl, programInfo, positionBuffer, presetChoice, shapeLength, shapeSize, newRules);
     });
     return <canvas ref={canvasRef} className='Canvas'/>;
 }
 
-function updateShape(gl, programInfo, positionBuffer, newShape, newLength, newSize) {
+function updateShape(gl, programInfo, positionBuffer, newShape, newLength, newSize, newRules) {
   // Generate initial shape
-  const curShape = getConfig(gl).get(newShape);
+  const curShape = getConfig(gl, newRules).get(newShape);
   const rule = curShape.rule;
+  if (rule == null) return;
   var shape = rule.axiom;
   var style = { len: newLength };
   for (let i = 0; i < newSize; i++) {
@@ -72,7 +73,7 @@ function updateShape(gl, programInfo, positionBuffer, newShape, newLength, newSi
  * @param {*} gl 
  * @returns 
  */
-function getConfig(gl) {
+function getConfig(gl, newShape) {
   var width = gl.canvas.clientWidth;
   var height = gl.canvas.clientHeight;
   return new Map([
@@ -91,6 +92,10 @@ function getConfig(gl) {
     ["fractalPlant", {
       rule: fractalPlant,
       start: { pos: { x: width / 2, y: 0 }, angle: 90 }
+    }],
+    ["Custom", {
+      rule: newShape,
+      start: { pos: {x : width / 2, y : height / 2}, angle: 90 }
     }]
   ])
 }
