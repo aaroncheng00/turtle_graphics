@@ -61,14 +61,17 @@ function parseMapping(raw) {
 
 function createRule(sym, ax, exp, mp) {
     console.log(sym, ax, exp, mp);
-    var symbols = parseSymbols(sym);
-    var expansion = parseExpansion(exp);
-    var mapping = parseMapping(mp);
-    var rs = new Rules(
-        symbols, [], ax, expansion, mapping
-    );
-    console.log(rs);
-    return rs;
+    try {
+        var symbols = parseSymbols(sym);
+        var expansion = parseExpansion(exp);
+        var mapping = parseMapping(mp);
+        var rs = new Rules(
+            symbols, [], ax, expansion, mapping
+        );
+        return rs;
+    } catch (err) {
+        console.log("error parsing custom rule:", err);
+    }
 }
 
 export { parseSymbols, parseExpansion, parseMapping, createRule }

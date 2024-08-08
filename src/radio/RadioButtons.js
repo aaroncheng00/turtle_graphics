@@ -1,11 +1,9 @@
-import './RadioButtons.css'
-
 export default function RadioButtons({ defaultValue, setValue }) {
     function updateValue(e) {
         setValue(e.target.value);
     }
     return (
-        <div onChange={updateValue} className='RadioButtons'>
+        <div onChange={updateValue} style={{position: 'relative', paddingTop: '8px'}}>
             <b>Presets:</b>
             <br></br>
             <input type='radio' value='fractalTree' name='preset' readOnly checked={defaultValue == 'fractalTree'}/> Fractal Tree

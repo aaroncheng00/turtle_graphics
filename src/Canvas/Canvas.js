@@ -49,21 +49,22 @@ function updateShape(gl, programInfo, positionBuffer, newShape, newLength, newSi
   // Generate initial shape
   const curShape = getConfig(gl, newRules).get(newShape);
   const rule = curShape.rule;
-  if (rule == null) return;
-  var shape = rule.axiom;
-  var style = { len: newLength };
-  for (let i = 0; i < newSize; i++) {
-    shape = generateNextShape(rule, shape);
-  }
-  console.log("shape:", shape.length, shape);
+  var positions = [];
+  if (rule != null) {
+    var shape = rule.axiom;
+    var style = { len: newLength };
+    for (let i = 0; i < newSize; i++) {
+      shape = generateNextShape(rule, shape);
+    }
+    console.log("shape:", shape.length, shape);
+    
+    // Generate initial vertex positions
+    positions = generatePositions(rule, shape, curShape.start, style);
+    console.log("pos:", positions);
   
-  // Generate initial vertex positions
-  const positions = generatePositions(rule, shape, curShape.start, style);
-  console.log("pos:", positions);
-
-  // Buffer position data into positionBuffer (bound to ARRAY_BUFFER)
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
-
+    // Buffer position data into positionBuffer (bound to ARRAY_BUFFER)
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+  }
   // Draw scene
   drawScene(gl, programInfo, positionBuffer, positions);
 }

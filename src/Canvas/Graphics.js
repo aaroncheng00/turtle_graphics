@@ -30,7 +30,12 @@ function generatePositions(rule, shape, startInfo, style) {
    var wrap = {buffer: buffer, turtle: turtle};
    for (let i = 0; i < shape.length; i++) {
     var cur = shape[i];
-    rule.mapping.get(cur)(wrap);
+    try {
+      rule.mapping.get(cur)(wrap);
+    } catch (err) {
+      console.log("error generating positions, check that push and restore/pop operations are matched:", err);
+      return [];
+    }
    }
    return buffer;
 }

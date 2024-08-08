@@ -1,0 +1,7 @@
+.OptionsMenu {
+    position: absolute;
+    z-index: 2;
+    color: palevioletred;
+    left: 10px;
+    top: 10px;
+}
