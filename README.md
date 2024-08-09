@@ -1,4 +1,13 @@
-# turtle_graphics
-Drawing a variety of L-systems with turtle graphics in WebGL and React.
-Supports preset shapes like fractal trees, fractal plants, sierpinski triangles, and dragon curves.
-Includes custom rule-setting to visualize your own language.
+
+# Visualizing L-Systems with Turtle Graphics 
+
+Drawing a variety of Lindenmayer systems, (L-systems) with turtle graphics using WebGL and React. 
+
+Turtle graphics can be thought of as programming a pen to move around the page, keeping track of position, direction, and style. 
+
+You can also save and restore previous pen states on a stack to enable more complex drawing. 
+
+This visualizer currently supports the following:
+- Control line length and number of iterations applied
+- Supports preset shapes like fractal trees, fractal plants, sierpinski triangles, and dragon curves
+- Includes custom rule-setting to visualize your own language
