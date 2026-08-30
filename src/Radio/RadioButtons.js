@@ -6,15 +6,15 @@ export default function RadioButtons({ defaultValue, setValue }) {
         <div onChange={updateValue} style={{position: 'relative', paddingTop: '8px'}}>
             <b>Presets:</b>
             <br></br>
-            <input type='radio' value='fractalTree' name='preset' readOnly checked={defaultValue == 'fractalTree'}/> Fractal Tree
+            <input type='radio' value='fractalTree' name='preset' readOnly checked={defaultValue === 'fractalTree'}/> Fractal Tree
             <br></br>
-            <input type='radio' value='fractalPlant' name='preset' readOnly checked={defaultValue == 'fractalPlant'}/> Fractal Plant
+            <input type='radio' value='fractalPlant' name='preset' readOnly checked={defaultValue === 'fractalPlant'}/> Fractal Plant
             <br></br>
-            <input type='radio' value='sierpinskiTriangle' name='preset' readOnly checked={defaultValue == 'sierpinskiTriangle'}/> Sierpinski Triangle
+            <input type='radio' value='sierpinskiTriangle' name='preset' readOnly checked={defaultValue === 'sierpinskiTriangle'}/> Sierpinski Triangle
             <br></br>
-            <input type='radio' value='dragonCurve' name='preset' readOnly checked={defaultValue == 'dragonCurve'}/> Dragon Curve
+            <input type='radio' value='dragonCurve' name='preset' readOnly checked={defaultValue === 'dragonCurve'}/> Dragon Curve
             <br></br>
-            <input type='radio' value='Custom' name='preset' readOnly checked={defaultValue == 'Custom'}/> Custom
+            <input type='radio' value='Custom' name='preset' readOnly checked={defaultValue === 'Custom'}/> Custom
             <br></br>
         </div>
     );

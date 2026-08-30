@@ -29,7 +29,7 @@ function parseMapping(raw) {
         for (let j = 0; j < rt.length; j++) {
         switch (rt[j]) {
             case 'T':
-            if (j + 1 == rt.length) {
+            if (j + 1 === rt.length) {
                 console.log('turn must be followed by angle');
                 break;
             }

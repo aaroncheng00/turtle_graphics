@@ -41,7 +41,7 @@ function getTranslation(gl, positions) {
     var xMax = Number.MIN_SAFE_INTEGER;
     var xMin = Number.MAX_SAFE_INTEGER;
     for (let i = 0; i < positions.length; i++) {
-      if (i % 2 == 0) {
+      if (i % 2 === 0) {
         xMin = Math.min(xMin, positions[i]);
         xMax = Math.max(xMax, positions[i]);
       } else {
