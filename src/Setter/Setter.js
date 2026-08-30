@@ -5,7 +5,8 @@ export default function Setter({ labelName, minValue, defValue, setValue }) {
     }
     return (
         <div onChange={updateValue} >
-            <b>{labelName}</b><input type="number" style={{backgroundColor: 'lightpink', marginTop: '2px'}} defaultValue={defValue} min={minValue} max="1000" step="1"/>
+            <b>{labelName}</b>
+            <input className="input-field" type="number" defaultValue={defValue} min={minValue} max="1000" step="1"/>
         </div>
     );
   }

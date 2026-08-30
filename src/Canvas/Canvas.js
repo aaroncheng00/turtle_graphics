@@ -30,6 +30,7 @@ export default function Canvas({ presetChoice, shapeLength, shapeSize, newRules 
             uniformLocations: {
             resolution: gl.getUniformLocation(shaderProgram, "u_resolution"),
             translation: gl.getUniformLocation(shaderProgram, "u_translation"),
+            color: gl.getUniformLocation(shaderProgram, "u_color"),
             },
         };
         // Create a buffer for vertex positions.

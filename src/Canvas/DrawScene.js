@@ -25,6 +25,10 @@ function drawScene(gl, programInfo, buffer, positions) {
     console.log("translate", dx, dy);
     gl.uniform2f(programInfo.uniformLocations.translation, dx, dy);
 
+    // Set color uniform
+    const col = [1, 1, 1, 1];
+    gl.uniform4f(programInfo.uniformLocations.color, col[0], col[1], col[2], col[3]);
+
     {
       const offset = 0;
       gl.drawArrays(gl.LINES, offset, positions.length / 2);

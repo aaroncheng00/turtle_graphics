@@ -1,4 +1,4 @@
-import './App.css';
+import './theme.css'
 import Canvas from './Canvas/Canvas.js';
 import RadioButtons from './Radio/RadioButtons.js';
 import Setter from './Setter/Setter.js';
@@ -19,8 +19,8 @@ function App() {
   const mapping = useRef('');
 
   return (
-    <div style={{fontSize:'11px', backgroundColor:'black'}}>
-      <div className='OptionsMenu'>
+    <div style={{fontSize:'11px'}}>
+      <div className='options-menu'>
         <Setter labelName={'Length: '} minValue={"1"} defValue={shapeLength} setValue={setShapeLength}/>
         <Setter labelName={'Size(n): '} minValue={"0"} defValue={shapeSize} setValue={setShapeSize}/>
         <RadioButtons defaultValue={preset} setValue={setPreset}/>

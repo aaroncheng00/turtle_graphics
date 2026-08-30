@@ -1,0 +1,23 @@
+:root {
+    --color-bg: rgb(210, 229, 255);
+    --color-text: white;
+    --color-bg-dark: white;
+}
+
+.input-field {
+    background-color: var(--color-bg);
+    margin-top: 2px;
+}
+
+.textarea-field {
+    background-color: var(--color-bg);
+    padding-top: 5px;
+}
+
+.options-menu {
+    position: absolute;
+    z-index: 2;
+    color: var(--color-text);
+    left: 10px;
+    top: 10px;
+}

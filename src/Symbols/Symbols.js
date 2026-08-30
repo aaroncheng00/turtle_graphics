@@ -7,7 +7,7 @@ export default function Symbols({ numRows, labelName, setRef }) {
             <b>{labelName}</b>
             <br></br>
             <div style={{paddingTop: '1px'}}>
-            <textarea style={{backgroundColor: 'lightpink', paddingTop: '5px'}} rows={numRows} onChange={updateRef} defaultValue='' name='preset'/>
+            <textarea className="textarea-field" rows={numRows} onChange={updateRef} defaultValue='' name='preset'/>
             </div>
         </div>
     );
